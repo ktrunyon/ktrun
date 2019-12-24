@@ -1,0 +1,31 @@
+# Pig Latin Translator Python 3.8 V1.1
+# start iteration
+while True:
+    pig = 'ay'
+    vowels = 'aeiou'  # sometimes 'y'
+
+    new_word = input('Enter a word: ').lower()  # prompts user to enter a word.
+    new_words = new_word.split()
+
+    if new_word.isdigit():
+        print('\nnumbers can\'t be translated!\n')
+    else:
+        for i in range(len(new_words)):
+            if new_words[i][0] in vowels:  # checks to see if first letter is a vowel
+                print(new_words[i] + pig)
+            elif new_words[i][1] in vowels:
+                print(new_words[i][1:] + new_words[i][0] + pig)  # execute if first 2 characters are consonants
+            elif new_words[i][2] in vowels:
+                print(new_words[i][2:] + new_words[i][0:2] + pig)  # execute if first 3 characters are consonants
+            elif new_words[i][3] in vowels:
+                print(new_words[i][3:] + new_words[i][0:3] + pig)  # execute if first 4 characters are consonants
+            elif new_words[i][4] in vowels:
+                print(new_words[i][4:] + new_words[i][0:4] + pig)  # execute if first 5 characters are consonants
+            else:
+                print(new_words[i][5:] + new_words[i][0:5] + pig)  # could not find a word that started w/ 6 consonants
+
+    try_again = input('\nTry again? (Press Enter to play or press n to quit)\n')
+    if try_again.lower() == 'n':
+        break
+
+input('Press Enter to exit')
